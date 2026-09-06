@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Latin Dental of Miami — General Dentistry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A2E4D;
+    --navy-deep:#071F35;
+    --blue:#1C6DD0;
+    --blue-bright:#3E8EF7;
+    --teal:#14A6B8;
+    --sky:#EAF3FB;
+    --ice:#F6FAFE;
+    --ink:#0D1B2A;
+    --ink-soft:#4A6072;
+    --white:#FFFFFF;
+    --line:#D9E6F2;
+    --radius-s:10px;
+    --radius-m:18px;
+    --radius-l:28px;
+    --maxw:1180px;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--ink);
+    background:var(--ice);
+    overflow-x:hidden;
+    text-rendering:optimizeSpeed;
+    -webkit-font-smoothing:antialiased;
+  }
+  a, button{touch-action:manipulation;}
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    color:var(--navy);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  p{line-height:1.6;color:var(--ink-soft);margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  section{position:relative;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  ::selection{background:var(--blue-bright);color:#fff;}
+
+  :focus-visible{outline:3px solid var(--teal);outline-offset:3px;}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(246,250,254,0.78);
+    backdrop-filter:blur(14px) saturate(160%);
+    border-bottom:1px solid rgba(217,230,242,0.7);
+    transition:box-shadow .4s ease;
+  }
+  .nav.scrolled{box-shadow:0 8px 30px -14px rgba(10,46,77,0.25);}
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:16px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;color:var(--navy);}
+  .brand svg{width:30px;height:30px;flex:none;}
+  .nav-links{display:flex;gap:30px;align-items:center;}
+  .nav-links a{
+    position:relative;font-size:0.95rem;font-weight:500;color:var(--navy);padding:4px 0;
+  }
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--blue);
+    transition:width .35s cubic-bezier(.65,0,.35,1);
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--navy);color:#fff !important;padding:10px 20px;border-radius:999px;
+    font-weight:600;font-size:0.9rem;transition:transform .3s ease, background .3s ease;
+  }
+  .nav-cta:hover{background:var(--blue);transform:translateY(-2px);}
+  .nav-cta::after{display:none;}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;position:relative;width:36px;height:36px;z-index:5;}
+  .burger span{display:block;width:22px;height:2px;background:var(--navy);margin:5px auto;border-radius:2px;transition:transform .35s cubic-bezier(.65,0,.35,1), opacity .25s ease;}
+  .burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.active span:nth-child(2){opacity:0;}
+  .burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  .lang-switch{display:flex;align-items:center;background:rgba(10,46,77,0.06);border:1px solid var(--line);border-radius:999px;padding:3px;flex:none;}
+  .lang-btn{border:none;background:transparent;cursor:pointer;padding:6px 13px;border-radius:999px;font-weight:600;font-size:0.8rem;color:var(--ink-soft);transition:background .3s ease,color .3s ease;font-family:inherit;}
+  .lang-btn.active{background:var(--navy);color:#fff;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:0;
+    display:flex;align-items:center;
+    padding:150px 0 120px;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(160deg,var(--navy-deep) 0%, var(--navy) 45%, #0E4271 100%);
+  }
+  .hero-photo{position:absolute;inset:0;z-index:0;overflow:hidden;}
+  .hero-photo img{
+    width:100%;height:100%;object-fit:cover;object-position:center 30%;
+    animation:kenburns 26s ease-in-out infinite alternate;
+    opacity:0.85;
+    will-change:transform;
+    backface-visibility:hidden;
+  }
+  .hero-photo::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(160deg,rgba(7,31,53,0.92) 0%,rgba(10,46,77,0.86) 45%,rgba(14,66,113,0.8) 100%);
+  }
+  @keyframes kenburns{from{transform:scale(1);}to{transform:scale(1.12);}}
+  .hero-bg{position:absolute;inset:0;z-index:1;}
+  .hero-bg svg{width:100%;height:100%;}
+  .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;animation:drift 22s ease-in-out infinite;will-change:transform;}
+  .blob.b1{width:420px;height:420px;background:radial-gradient(circle at 30% 30%,rgba(62,142,247,0.55),rgba(62,142,247,0) 70%);top:-120px;right:-100px;animation-duration:26s;}
+  .blob.b2{width:320px;height:320px;background:radial-gradient(circle at 40% 40%,rgba(20,166,184,0.45),rgba(20,166,184,0) 70%);bottom:-100px;left:10%;animation-duration:19s;animation-delay:-6s;}
+  .blob.b3{width:260px;height:260px;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.18),rgba(255,255,255,0) 70%);top:35%;left:45%;animation-duration:24s;animation-delay:-11s;}
+  @keyframes drift{
+    0%{transform:translate(0,0) scale(1);}
+    33%{transform:translate(30px,-40px) scale(1.08);}
+    66%{transform:translate(-25px,25px) scale(0.95);}
+    100%{transform:translate(0,0) scale(1);}
+  }
+
+  .hero-grid{
+    position:relative;z-index:2;
+
+    max-width:var(--maxw);margin:0 auto;padding:60px 32px;
+    display:block;
+  }
+  .hero-grid > div:first-child{max-width:640px;}
+  .eyebrow-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+    color:#BFE0FF;padding:7px 16px;border-radius:999px;font-size:0.85rem;font-weight:500;
+    opacity:0;transform:translateY(14px);animation:reveal .8s .1s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .eyebrow-badge .dot{width:7px;height:7px;border-radius:50%;background:#4CD787;box-shadow:0 0 0 0 rgba(76,215,135,.6);animation:pulseDot 2s infinite;}
+  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(76,215,135,.55);}70%{box-shadow:0 0 0 8px rgba(76,215,135,0);}100%{box-shadow:0 0 0 0 rgba(76,215,135,0);}}
+
+  .hero h1{
+    color:#fff;font-size:clamp(2.4rem,4.6vw,3.6rem);font-weight:600;line-height:1.08;margin:22px 0 20px;
+    opacity:0;transform:translateY(22px);animation:reveal .9s .25s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .hero h1 em{font-style:italic;color:#8FCBFF;}
+  .hero p.lead{
+    color:#C7D9E8;font-size:1.12rem;max-width:480px;margin-bottom:34px;
+    opacity:0;transform:translateY(22px);animation:reveal .9s .4s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;opacity:0;transform:translateY(22px);animation:reveal .9s .55s cubic-bezier(.2,.8,.2,1) forwards;}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:999px;
+    font-weight:600;font-size:0.98rem;border:none;cursor:pointer;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease, background .35s ease;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--blue-bright),var(--teal));color:#fff;box-shadow:0 14px 30px -10px rgba(30,120,220,0.55);}
+  .btn:disabled{opacity:0.5;cursor:not-allowed;transform:none !important;box-shadow:none !important;}
+  .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 36px -8px rgba(30,120,220,0.65);}
+  .btn-ghost{background:rgba(255,255,255,0.06);color:#fff;border:1px solid rgba(255,255,255,0.35);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.14);transform:translateY(-3px);}
+
+  .hero-stats{display:flex;gap:0;margin-top:44px;opacity:0;transform:translateY(22px);animation:reveal .9s .7s cubic-bezier(.2,.8,.2,1) forwards;}
+  .stat{flex:1;text-align:center;padding:0 22px;border-left:1px solid rgba(255,255,255,0.18);}
+  .stat:first-child{padding-left:0;border-left:none;}
+  .stat b{display:block;color:#fff;font-family:'Fraunces',serif;font-size:1.7rem;}
+  .stat span{color:#9FB9CD;font-size:0.85rem;}
+  .count-num{display:inline-block;will-change:transform;}
+  @keyframes countPop{
+    0%{transform:scale(1);text-shadow:0 0 0 rgba(62,142,247,0);}
+    45%{transform:scale(1.4);text-shadow:0 0 20px rgba(62,142,247,0.95),0 0 42px rgba(20,166,184,0.65);}
+    75%{transform:scale(0.92);text-shadow:0 0 12px rgba(62,142,247,0.6);}
+    100%{transform:scale(1);text-shadow:0 0 10px rgba(62,142,247,0.5);}
+  }
+  .count-num.pop{animation:countPop .75s cubic-bezier(.34,1.56,.64,1) forwards;}
+  @keyframes numGlow{
+    0%,100%{text-shadow:0 0 8px rgba(143,203,255,0.35);}
+    50%{text-shadow:0 0 20px rgba(143,203,255,0.85);}
+  }
+  .count-num.counted{animation:numGlow 2.4s ease-in-out infinite;}
+
+  @keyframes reveal{to{opacity:1;transform:translateY(0);}}
+
+  .hero-visual{
+    position:relative;z-index:2;
+    opacity:0;transform:translateY(26px) scale(.96);animation:reveal .95s .35s cubic-bezier(.2,.8,.2,1) forwards;
+  }
+  .visual-card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:var(--radius-l);
+    padding:34px;backdrop-filter:blur(6px);
+    animation:floatCard 6s ease-in-out infinite;
+  }
+  @keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  .tooth-ring{width:100%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#245d92,#0d2e4c 70%);display:flex;align-items:center;justify-content:center;position:relative;}
+  .tooth-ring svg{width:46%;height:46%;animation:toothSpin 8s ease-in-out infinite;}
+  @keyframes toothSpin{0%,100%{transform:rotate(-4deg);}50%{transform:rotate(4deg);}}
+  .ring-orbit{position:absolute;inset:-14px;border-radius:50%;border:1.5px dashed rgba(143,203,255,0.4);animation:spin 30s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .rating-chip{
+    position:absolute;bottom:-22px;left:-22px;background:#fff;color:var(--navy);
+    padding:14px 18px;border-radius:var(--radius-m);box-shadow:0 20px 40px -12px rgba(0,0,0,0.35);
+    display:flex;align-items:center;gap:10px;font-weight:600;
+    animation:floatCard 5s ease-in-out infinite;animation-delay:-1.5s;
+  }
+  .rating-chip .stars{color:#F5A623;font-size:1rem;letter-spacing:1px;}
+  .rating-chip small{display:block;color:var(--ink-soft);font-weight:500;font-size:0.72rem;}
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal.zoom{transform:scale(.92);}
+  .reveal.zoom.in{transform:scale(1);}
+  .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.8,.2,1), transform .7s cubic-bezier(.2,.8,.2,1);}
+  .reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s;}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.15s;}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.25s;}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.35s;}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.45s;}
+  .reveal-stagger.in > *:nth-child(6){transition-delay:.55s;}
+
+  /* ---------- SECTION generic ---------- */
+  .section{padding:110px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .kicker{color:var(--blue);font-weight:600;font-size:0.95rem;margin-bottom:10px;display:block;}
+  .section-head h2{font-size:clamp(1.9rem,3vw,2.6rem);font-weight:600;}
+  .section-head p{margin-top:16px;font-size:1.05rem;}
+
+  /* ---------- ABOUT ---------- */
+  .about{background:var(--white);}
+  .about-grid{display:block;max-width:720px;}
+  .about ul{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:16px;}
+  .about ul li{display:flex;gap:14px;align-items:flex-start;color:var(--ink);font-weight:500;}
+  .about ul li svg{flex:none;width:22px;height:22px;color:var(--teal);margin-top:2px;}
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--sky);}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .service-card{
+    background:#fff;border-radius:var(--radius-m);padding:32px 28px;
+    border:1px solid var(--line);position:relative;overflow:hidden;contain:content;
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease;
+  }
+  .service-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--blue-bright),var(--teal));
+    transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .service-card:hover{transform:translateY(-8px);box-shadow:0 26px 40px -20px rgba(10,46,77,0.25);border-color:transparent;}
+  .service-card:hover::before{transform:scaleX(1);}
+  .service-icon{width:48px;height:48px;border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;margin-bottom:18px;color:var(--blue);transition:background .4s ease,color .4s ease;}
+  .service-card:hover .service-icon{background:var(--navy);color:#fff;}
+  .service-icon svg{width:24px;height:24px;}
+  .service-card h3{font-size:1.15rem;margin-bottom:8px;font-weight:600;}
+  .service-card p{font-size:0.95rem;}
+
+  /* ---------- TECHNOLOGY ---------- */
+  .tech{background:var(--white);}
+  .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+
+  /* ---------- WHY ---------- */
+  .why{background:var(--navy);color:#fff;position:relative;overflow:hidden;}
+  .why::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(62,142,247,0.18),transparent 70%);top:-200px;left:-150px;animation:drift 20s ease-in-out infinite;}
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;position:relative;z-index:1;}
+  .why-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.14);border-radius:var(--radius-m);padding:36px;contain:content;}
+  .why-card h3{color:#fff;font-size:1.3rem;margin-bottom:10px;}
+  .why-card p{color:#B9CEDF;}
+  .why .section-head h2{color:#fff;}
+  .why .section-head p{color:#B9CEDF;}
+  .why .kicker{color:#8FCBFF;}
+
+  /* ---------- REVIEWS ---------- */
+  .reviews{background:var(--white);}
+  .review-hero{
+    display:grid;grid-template-columns:0.55fr 1.45fr;gap:48px;align-items:center;
+    background:var(--sky);border-radius:var(--radius-l);padding:52px;
+  }
+  .score-block{text-align:center;}
+  .score-num{font-family:'Fraunces',serif;font-size:4.2rem;color:var(--navy);font-weight:600;line-height:1;}
+  .score-stars{color:#F5A623;font-size:1.3rem;letter-spacing:3px;margin:10px 0;}
+  .score-sub{color:var(--ink-soft);font-size:0.95rem;}
+  .review-note{border-left:3px solid var(--blue);padding-left:22px;}
+  .review-note p{font-size:1.05rem;color:var(--ink);}
+  .review-note span{display:block;margin-top:12px;color:var(--ink-soft);font-size:0.9rem;}
+
+  .review-list{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;}
+  .review-card{background:var(--sky);border:1px solid var(--line);border-radius:var(--radius-m);padding:28px;contain:content;}
+  .reviewer-row{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .avatar{width:44px;height:44px;border-radius:50%;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600;flex:none;}
+  .reviewer-name{font-weight:600;color:var(--ink);}
+  .reviewer-meta{font-size:0.82rem;color:var(--ink-soft);}
+  .review-stars{color:#F5A623;font-size:0.95rem;letter-spacing:2px;margin-bottom:10px;}
+  .review-text{font-size:0.95rem;color:var(--ink);font-style:italic;}
+  .review-source{display:block;margin-top:14px;font-size:0.78rem;color:var(--ink-soft);}
+
+  /* ---------- MAP ---------- */
+  .map-sec{background:var(--sky);}
+  .map-card{display:grid;grid-template-columns:0.9fr 1.1fr;border-radius:var(--radius-l);overflow:hidden;background:#fff;box-shadow:0 30px 60px -30px rgba(10,46,77,0.35);}
+  .map-info{padding:48px;display:flex;flex-direction:column;justify-content:center;gap:20px;}
+  .map-info h3{font-size:1.5rem;}
+  .info-row{display:flex;gap:14px;align-items:flex-start;}
+  .info-row svg{width:22px;height:22px;color:var(--blue);flex:none;margin-top:2px;}
+  .info-row strong{display:block;color:var(--ink);}
+  .info-row span{color:var(--ink-soft);font-size:0.92rem;}
+  .map-frame{position:relative;min-height:380px;}
+  .map-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(0.85) contrast(1.02);}
+  .map-frame-link{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:flex-end;padding:16px;background:transparent;transition:background .3s ease;cursor:pointer;}
+  .map-frame-link:hover{background:rgba(10,46,77,0.1);}
+  .map-frame-link span{background:var(--navy);color:#fff;font-size:0.82rem;font-weight:600;padding:10px 16px;border-radius:999px;box-shadow:0 10px 24px -8px rgba(10,46,77,0.5);}
+
+  /* ---------- COMFORT / CONTACT ---------- */
+  .contact{background:var(--white);}
+  .comfort-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:48px;}
+  .comfort-card{
+    background:#fff;border-radius:var(--radius-m);padding:32px 26px;border:1px solid var(--line);
+    text-align:center;contain:content;transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease;
+  }
+  .comfort-card:hover{transform:translateY(-8px);box-shadow:0 26px 40px -20px rgba(10,46,77,0.25);border-color:transparent;}
+  .comfort-icon{width:52px;height:52px;border-radius:14px;background:var(--sky);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--blue);transition:background .4s ease,color .4s ease;}
+  .comfort-card:hover .comfort-icon{background:var(--navy);color:#fff;}
+  .comfort-icon svg{width:26px;height:26px;}
+  .comfort-card h3{font-size:1.08rem;margin-bottom:8px;font-weight:600;}
+  .comfort-card p{font-size:0.92rem;}
+
+  .contact-card{background:var(--navy);border-radius:var(--radius-l);padding:56px;position:relative;overflow:hidden;color:#fff;}
+  .contact-card::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(20,166,184,0.18),transparent 70%);bottom:-220px;right:-160px;animation:drift 24s ease-in-out infinite reverse;}
+  .contact-inner{position:relative;z-index:1;}
+  .contact-cta{text-align:center;max-width:520px;margin:0 auto;}
+  .contact-cta h3{color:#fff;font-size:1.6rem;margin-bottom:12px;}
+  .contact-cta p{color:#B9CEDF;}
+  .contact-cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:30px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep);color:#9FB9CD;padding:56px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;margin-bottom:14px;}
+  footer h4{color:#fff;font-size:0.95rem;margin-bottom:16px;font-weight:600;}
+  footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;}
+  footer a{color:#9FB9CD;font-size:0.92rem;transition:color .3s ease;}
+  footer a:hover{color:#fff;}
+  .footer-bottom{padding-top:24px;font-size:0.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .wa-float{
+    position:fixed;bottom:26px;right:26px;z-index:200;
+    width:58px;height:58px;border-radius:50%;
+    background:#25D366;color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 16px 34px -10px rgba(7,31,53,0.5);
+    opacity:1;visibility:visible;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), opacity .3s ease, visibility .3s ease;
+  }
+  .wa-float:hover{transform:translateY(-3px) scale(1.05);}
+  .wa-float.hide{opacity:0;visibility:hidden;transform:translateY(14px) scale(.9);pointer-events:none;}
+  @media (max-width:600px){
+    .wa-float{bottom:18px;right:18px;width:52px;height:52px;}
+    .wa-float svg{width:26px;height:26px;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .nav-links{
+      position:fixed;top:70px;left:16px;right:16px;
+      background:linear-gradient(165deg,var(--navy-deep),var(--navy));
+      flex-direction:column;align-items:stretch;gap:0;padding:10px 8px;
+      border-radius:var(--radius-m);
+      box-shadow:0 30px 60px -20px rgba(7,31,53,0.55);
+      border:1px solid rgba(255,255,255,0.08);
+      transform:translateY(-16px) scale(.98);opacity:0;visibility:hidden;pointer-events:none;
+      transition:transform .4s cubic-bezier(.2,.8,.2,1), opacity .3s ease, visibility .4s;
+    }
+    .nav-links.open{transform:translateY(0) scale(1);opacity:1;visibility:visible;pointer-events:auto;}
+    .nav-links a{
+      color:#EAF3FB !important;font-size:1.05rem;font-weight:500;
+      padding:16px 14px;border-bottom:1px solid rgba(255,255,255,0.09);
+      width:100%;
+    }
+    .nav-links a::after{display:none;}
+    .nav-links a:last-of-type{border-bottom:none;}
+    .nav-links a:not(.nav-cta):active{color:#8FCBFF !important;}
+    .nav-cta{
+      margin:12px 6px 6px;text-align:center;border-bottom:none !important;
+      background:linear-gradient(120deg,var(--blue-bright),var(--teal)) !important;
+    }
+    .burger{display:block;}
+    .about-grid, .review-hero, .map-card, .why-grid, .service-grid, .tech-grid, .review-list{grid-template-columns:1fr;}
+    .service-grid, .tech-grid{grid-template-columns:1fr 1fr;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .comfort-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .wrap, .hero-grid{padding-left:20px;padding-right:20px;}
+    .section{padding:76px 0;}
+    .tech-grid, .footer-grid{grid-template-columns:1fr;}
+    .comfort-grid{grid-template-columns:1fr;}
+    .contact-card, .map-info, .review-hero{padding:28px;}
+    .service-grid{grid-template-columns:1fr 1fr;gap:14px;}
+    .service-card{padding:20px 16px;}
+    .service-icon{width:38px;height:38px;border-radius:11px;margin-bottom:12px;}
+    .service-icon svg{width:19px;height:19px;}
+    .service-card h3{font-size:0.98rem;margin-bottom:5px;}
+    .service-card p{font-size:0.82rem;line-height:1.45;}
+    .nav{backdrop-filter:blur(8px) saturate(130%);}
+    .blob{filter:blur(1px);}
+    .blob.b1{width:260px;height:260px;}
+    .blob.b2{width:200px;height:200px;}
+    .blob.b3{width:160px;height:160px;}
+    .visual-card{backdrop-filter:blur(3px);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 4.5 5 8.5c0 2.8 1.1 3.9 1.6 6.6.3 1.7.5 4.4 1.8 4.9 1.5.6 1.9-2.1 2.4-3.6.3-1 .6-1.6 1.2-1.6s.9.6 1.2 1.6c.5 1.5.9 4.2 2.4 3.6 1.3-.5 1.5-3.2 1.8-4.9.5-2.7 1.6-3.8 1.6-6.6C19 4.5 16 2 12 2Z" stroke="#1C6DD0" stroke-width="1.6"/></svg>
+      Latin Dental
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav_about">About Us</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#why" data-i18n="nav_why">Why Us</a>
+      <a href="#reviews" data-i18n="nav_reviews">Reviews</a>
+      <a href="#map" data-i18n="nav_map">Map</a>
+    </div>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn active" data-lang="en" type="button">EN</button>
+      <button class="lang-btn" data-lang="es" type="button">ES</button>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-photo">
+    <img src="https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1200&dpr=1" alt="Dentist with a patient at Latin Dental of Miami" data-i18n-attr="alt" data-i18n="hero_img_alt" loading="eager" decoding="async" fetchpriority="high">
+  </div>
+  <div class="hero-bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <span class="eyebrow-badge"><span class="dot"></span><span data-i18n="hero_badge">Now seeing patients in Downtown Miami</span></span>
+      <h1 data-i18n-html="hero_h1"><em>Cosmetic</em>, Restorative &amp; General Dentistry in Miami</h1>
+      <p class="lead" data-i18n="hero_lead">Smile Design, Crowns &amp; Bridges, Dental Implants and Oral Surgery. We accept new patients.</p>
+      <div class="hero-actions">
+        <a href="tel:+13056420504" class="btn btn-primary">(305) 642-0504</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b class="count-num" data-count-target="4.6" data-count-decimals="1" data-count-suffix="★">0★</b><span data-i18n="hero_stat1">Google rating</span></div>
+        <div class="stat"><b class="count-num" data-count-target="56" data-count-decimals="0">0</b><span data-i18n="hero_stat2">Google reviews</span></div>
+        <div class="stat"><b class="count-num" data-count-target="204" data-count-decimals="0" data-count-prefix="#">#0</b><span data-i18n="hero_stat3">Downtown Miami</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about section" id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <span class="kicker" data-i18n="about_kicker">About Us</span>
+      <h2 data-i18n="about_h2">Caring for your dental health in the heart of Miami</h2>
+      <p data-i18n="about_p">Latin Dental of Miami is focused on comfortable, convenient general dental care. Contact the team directly for information about services, availability and payment options.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg><span data-i18n="about_li1">Conveniently located in Downtown Miami</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg><span data-i18n="about_li2">General dentistry care for the local community</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg><span data-i18n="about_li3">Contact the team directly for details on services and availability</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg><span data-i18n="about_li4">We accept new patients</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="services_kicker">Services</span>
+      <h2 data-i18n="services_h2">Dental Services</h2>
+      <p data-i18n="services_p">Comprehensive dental care for patients in Miami.</p>
+    </div>
+    <div class="service-grid reveal-stagger">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 4.5 5 8.5c0 2.8 1.1 3.9 1.6 6.6.3 1.7.5 4.4 1.8 4.9 1.5.6 1.9-2.1 2.4-3.6.3-1 .6-1.6 1.2-1.6s.9.6 1.2 1.6c.5 1.5.9 4.2 2.4 3.6 1.3-.5 1.5-3.2 1.8-4.9.5-2.7 1.6-3.8 1.6-6.6C19 4.5 16 2 12 2Z" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 data-i18n="svc1_title">General Dentistry</h3>
+        <p data-i18n="svc1_p">Routine dental care focused on maintaining oral health and addressing common dental needs.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.3 8.4 3 5 6.5 5c2 0 3.5 1.4 5.5 3.4C14 6.4 15.5 5 17.5 5 21 5 22.7 8.4 21.3 11.9 19 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 12l2 2 5-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="svc8_title">Cosmetic Dentistry</h3>
+        <p data-i18n="svc8_p">Cosmetic treatments designed to enhance the appearance and health of your smile.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 6l4-3 4 3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10h6l-1 10-2 2-2-2-1-10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="svc11_title">Dental Implants</h3>
+        <p data-i18n="svc11_p">Dental implant treatment to provide a long-term solution for missing teeth.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3.5v6c0 5-3 8-7 9-4-1-7-4-7-9v-6L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12h6M12 9v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="svc10_title">Crowns &amp; Bridges</h3>
+        <p data-i18n="svc10_p">Custom crowns and bridges to restore damaged teeth and replace missing ones.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20l6-6M14 4l6 6-9 9-4-4 9-9Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="svc6_title">Oral Surgery</h3>
+        <p data-i18n="svc6_p">Selected oral surgery procedures as part of comprehensive dental care.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="svc7_title">Teeth Whitening</h3>
+        <p data-i18n="svc7_p">Professional whitening treatment designed to improve the appearance of the smile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tech section" id="technology">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="tech_kicker">Technology</span>
+      <h2 data-i18n="tech_h2">Modern Dental Technology</h2>
+      <p data-i18n="tech_p">Our practice utilizes modern dental technology, including digital X-ray equipment, 3D scanning and medical imaging tools to support accurate evaluation, treatment planning and patient care.</p>
+    </div>
+    <div class="tech-grid reveal-stagger">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M7 9c1 2 2 2 3 0s2-2 3 0 2 2 3 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 14c1 1.5 2 1.5 3 0s2-1.5 3 0 2 1.5 3 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="tech1_title">Digital X-Rays</h3>
+        <p data-i18n="tech1_p">Modern X-ray equipment to support dental evaluation and treatment planning.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 3v9M12 12l8-4.5M12 12l-8-4.5" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="tech2_title">3D Scanning</h3>
+        <p data-i18n="tech2_p">3D scanning technology to assist with detailed dental assessment and treatment planning.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M6 10l2.5 3 2-4 2.5 4 2-2 2.5 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="tech3_title">Medical Imaging</h3>
+        <p data-i18n="tech3_p">Modern imaging tools that support accurate evaluation and clinical decision-making.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v4h4" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 13h6M9 16h6M9 10h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="tech4_title">Digital Patient Records</h3>
+        <p data-i18n="tech4_p">Electronic medical records help organize patient information and support efficient care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why section" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="why_kicker">Why Us</span>
+      <h2 data-i18n="why_h2">What sets Latin Dental of Miami apart</h2>
+    </div>
+    <div class="why-grid reveal-stagger">
+      <div class="why-card">
+        <h3 data-i18n="why1_title">Convenient, central location</h3>
+        <p data-i18n="why1_p">Located on SW 12th Avenue in the heart of Miami, the clinic offers accessible dental care for local residents and nearby communities alike.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="why2_title">A local general dentistry practice</h3>
+        <p data-i18n="why2_p">Latin Dental of Miami serves a wide range of general dental care needs for the local community. Contact the team directly to confirm availability for specific treatments.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="why3_title">New patients welcome</h3>
+        <p data-i18n="why3_p">Latin Dental of Miami is currently accepting new patients and looks forward to welcoming you to the practice.</p>
+      </div>
+      <div class="why-card">
+        <h3 data-i18n="why5_title">Convenient Downtown Miami location</h3>
+        <p data-i18n="why5_p">Easy to reach from anywhere in the city, our Downtown Miami office makes scheduling a visit simple.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews section" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="reviews_kicker">Reviews</span>
+      <h2 data-i18n="reviews_h2">What our patients say on Google</h2>
+    </div>
+    <div class="review-list reveal-stagger">
+      <div class="review-card">
+        <div class="reviewer-row">
+          <div class="avatar" style="background:#8e44ad;">C</div>
+          <div>
+            <div class="reviewer-name">Christian De Antonio</div>
+            <div class="reviewer-meta" data-i18n="reviewer_meta_1">Local Guide · 20 reviews</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I loved this place. The professional dentist, the staff and how I was properly educated on how to keep my teeth healthy. I truly recommend this dentist."</p>
+        <span class="review-source" data-i18n="google_review_label">Google Review</span>
+      </div>
+      <div class="review-card">
+        <div class="reviewer-row">
+          <div class="avatar" style="background:#34495e;">J</div>
+          <div>
+            <div class="reviewer-name">Juan Alvarez</div>
+            <div class="reviewer-meta" data-i18n="reviewer_meta_2">Local Guide · 19 reviews</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Been coming here for over 10 years and they never disappoint. From the ladies at the front desk to Marlene amazing service overall."</p>
+        <span class="review-source" data-i18n="google_review_label">Google Review</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map-sec section" id="map">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="map_kicker">Map</span>
+      <h2 data-i18n="map_h2">Find us here</h2>
+    </div>
+    <div class="map-card reveal">
+      <div class="map-info">
+        <h3>Latin Dental of Miami</h3>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-6.5-5.7-6.5-11A6.5 6.5 0 0 1 18.5 10c0 5.3-6.5 11-6.5 11Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div><strong data-i18n="map_addr_label">Address</strong><span>434 SW 12th Ave #204, Miami, FL 33130</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0-1.1.9-2 2-2h2.2c.5 0 1 .3 1.1.8l1 3.2c.2.5 0 1-.4 1.3l-1.6 1.2a12 12 0 0 0 5.9 5.9l1.2-1.6c.3-.4.8-.6 1.3-.4l3.2 1c.5.1.8.6.8 1.1V18a2 2 0 0 1-2 2h-1C10.6 20 4 13.4 4 5Z" stroke="currentColor" stroke-width="1.6"/></svg>
+          <div><strong data-i18n="map_phone_label">Phone</strong><span>(305) 642-0504</span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><strong data-i18n="map_email_label">Email</strong><span><a href="mailto:latindentalofmiami@gmail.com">latindentalofmiami@gmail.com</a></span></div>
+        </div>
+        <div class="info-row">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <div>
+            <strong data-i18n="map_hours_label">Hours</strong>
+            <ul style="list-style:none;margin:6px 0 0;padding:0;display:grid;gap:4px;color:var(--ink-soft);font-size:0.92rem;">
+              <li data-i18n="hours_mon_tue">Mon–Tue: 10:00 AM–4:00 PM</li>
+              <li data-i18n="hours_wed">Wed: 11:00 AM–7:00 PM</li>
+              <li data-i18n="hours_thu_fri">Thu–Fri: 10:00 AM–4:00 PM</li>
+              <li data-i18n="hours_sat">Sat: 8:00 AM–1:00 PM</li>
+              <li data-i18n="hours_sun">Sun: Closed</li>
+            </ul>
+          </div>
+        </div>
+        <a href="tel:+13056420504" class="btn btn-primary" style="width:fit-content;margin-top:8px;" data-i18n="map_cta">Call Now</a>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=25.7689548,-80.2147555&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Latin Dental of Miami on the map" data-i18n-attr="title" data-i18n="map_iframe_title"></iframe>
+        <a class="map-frame-link" href="https://maps.app.goo.gl/pTtdWP3Q8kuNmYQi8" target="_blank" rel="noopener noreferrer" aria-label="Open in Google Maps" data-i18n-attr="aria-label" data-i18n="map_link_label">
+          <span data-i18n="map_link_label">Open in Google Maps</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="comfort_kicker">Your Comfort</span>
+      <h2 data-i18n="comfort_h2">Your Comfort Comes First</h2>
+      <p data-i18n="comfort_p">Every visit is built around care, technology and a team that puts you first.</p>
+    </div>
+    <div class="comfort-grid reveal-stagger">
+      <div class="comfort-card">
+        <div class="comfort-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M17 20v-1.6a3.4 3.4 0 0 0-3.4-3.4H8.4A3.4 3.4 0 0 0 5 18.4V20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="10.8" cy="7.8" r="3.3" stroke="currentColor" stroke-width="1.7"/><path d="M16 8.2a3 3 0 0 1 0 5.9M19.5 20v-1.5a3 3 0 0 0-2-2.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="comfort1_title">Experienced Dental Team</h3>
+        <p data-i18n="comfort1_p">Skilled, attentive professionals dedicated to quality care at every visit.</p>
+      </div>
+      <div class="comfort-card">
+        <div class="comfort-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="13" rx="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M8 21h8M12 18v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M7.5 13.2l2.4-3 2 2.2 3-4 2.6 3.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3 data-i18n="comfort2_title">Modern Technology</h3>
+        <p data-i18n="comfort2_p">Up-to-date equipment and techniques for safer, more precise treatment.</p>
+      </div>
+      <div class="comfort-card">
+        <div class="comfort-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.6-9.3-9.1C1.3 8.4 3 5 6.5 5c2 0 3.5 1.4 5.5 3.4C14 6.4 15.5 5 17.5 5 21 5 22.7 8.4 21.3 11.9 19 16.4 12 21 12 21Z" stroke="currentColor" stroke-width="1.7"/></svg></div>
+        <h3 data-i18n="comfort3_title">Comfortable Care</h3>
+        <p data-i18n="comfort3_p">A calm, welcoming environment designed to put every patient at ease.</p>
+      </div>
+      <div class="comfort-card">
+        <div class="comfort-icon"><svg viewBox="0 0 24 24" fill="none"><rect x="2.5" y="6" width="19" height="13" rx="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M2.5 10h19" stroke="currentColor" stroke-width="1.7"/><path d="M6 14.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div>
+        <h3 data-i18n="comfort4_title">Flexible Payment Options</h3>
+        <p data-i18n="comfort4_p">Convenient payment choices to make quality dental care accessible.</p>
+      </div>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-inner">
+        <div class="contact-cta">
+          <h3 data-i18n="contact_cta_h3">Have Questions? Contact Our Team</h3>
+          <p data-i18n="contact_cta_p">We're here to help. Reach out and we'll get back to you right away.</p>
+          <div class="contact-cta-actions">
+            <a href="tel:+13056420504" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 5c0-1.1.9-2 2-2h2.2c.5 0 1 .3 1.1.8l1 3.2c.2.5 0 1-.4 1.3l-1.6 1.2a12 12 0 0 0 5.9 5.9l1.2-1.6c.3-.4.8-.6 1.3-.4l3.2 1c.5.1.8.6.8 1.1V18a2 2 0 0 1-2 2h-1C10.6 20 4 13.4 4 5Z" stroke="currentColor" stroke-width="1.6"/></svg>
+              <span data-i18n="call_now_btn">Call Now</span>
+            </a>
+            <a href="https://wa.me/13056420504" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="waInlineBtn">
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none"><path fill="currentColor" d="M16.004 3C9.377 3 4 8.373 4 15c0 2.386.703 4.605 1.912 6.472L4 29l7.72-1.87A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.818c-1.973 0-3.876-.53-5.52-1.53l-.396-.236-4.583 1.11 1.127-4.463-.258-.412A9.79 9.79 0 0 1 5.09 15c0-5.463 4.451-9.909 9.914-9.909 5.462 0 9.909 4.446 9.909 9.909 0 5.462-4.447 9.818-9.909 9.818Zm5.44-7.39c-.298-.15-1.76-.87-2.033-.968-.272-.1-.47-.15-.669.149-.198.298-.766.968-.94 1.166-.173.198-.347.223-.644.075-.298-.15-1.257-.463-2.394-1.478-.885-.789-1.482-1.764-1.655-2.062-.173-.298-.018-.459.13-.607.134-.133.298-.347.447-.52.148-.174.198-.298.297-.497.1-.198.05-.372-.025-.52-.075-.149-.67-1.615-.918-2.212-.242-.58-.489-.5-.67-.51-.173-.009-.372-.011-.57-.011-.198 0-.52.075-.793.373-.272.298-1.04 1.017-1.04 2.482 0 1.464 1.065 2.879 1.213 3.078.148.198 2.098 3.204 5.083 4.494.71.307 1.264.49 1.696.628.712.227 1.36.194 1.872.118.571-.085 1.76-.72 2.008-1.415.248-.695.248-1.291.173-1.415-.075-.124-.273-.198-.57-.348Z"/></svg>
+              <span data-i18n="whatsapp_btn">WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 4.5 5 8.5c0 2.8 1.1 3.9 1.6 6.6.3 1.7.5 4.4 1.8 4.9 1.5.6 1.9-2.1 2.4-3.6.3-1 .6-1.6 1.2-1.6s.9.6 1.2 1.6c.5 1.5.9 4.2 2.4 3.6 1.3-.5 1.5-3.2 1.8-4.9.5-2.7 1.6-3.8 1.6-6.6C19 4.5 16 2 12 2Z" stroke="#8FCBFF" stroke-width="1.5"/></svg>
+          Latin Dental of Miami
+        </div>
+        <p style="color:#7C93A6;font-size:0.9rem;max-width:280px;" data-i18n="footer_tagline">General dentistry care in Downtown Miami. Convenient, central location.</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer_nav_title">Navigation</h4>
+        <ul>
+          <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#reviews" data-i18n="nav_reviews">Reviews</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer_contact_title">Contact</h4>
+        <ul>
+          <li>434 SW 12th Ave #204, Miami, FL 33130</li>
+          <li><a href="tel:+13056420504">(305) 642-0504</a></li>
+          <li><a href="mailto:latindentalofmiami@gmail.com">latindentalofmiami@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="footer_copy">© 2026 Latin Dental of Miami</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/13056420504" target="_blank" rel="noopener noreferrer" class="wa-float" id="waFloat" aria-label="WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="none"><path fill="currentColor" d="M16.004 3C9.377 3 4 8.373 4 15c0 2.386.703 4.605 1.912 6.472L4 29l7.72-1.87A11.94 11.94 0 0 0 16.004 27C22.63 27 28 21.627 28 15S22.63 3 16.004 3Zm0 21.818c-1.973 0-3.876-.53-5.52-1.53l-.396-.236-4.583 1.11 1.127-4.463-.258-.412A9.79 9.79 0 0 1 5.09 15c0-5.463 4.451-9.909 9.914-9.909 5.462 0 9.909 4.446 9.909 9.909 0 5.462-4.447 9.818-9.909 9.818Zm5.44-7.39c-.298-.15-1.76-.87-2.033-.968-.272-.1-.47-.15-.669.149-.198.298-.766.968-.94 1.166-.173.198-.347.223-.644.075-.298-.15-1.257-.463-2.394-1.478-.885-.789-1.482-1.764-1.655-2.062-.173-.298-.018-.459.13-.607.134-.133.298-.347.447-.52.148-.174.198-.298.297-.497.1-.198.05-.372-.025-.52-.075-.149-.67-1.615-.918-2.212-.242-.58-.489-.5-.67-.51-.173-.009-.372-.011-.57-.011-.198 0-.52.075-.793.373-.272.298-1.04 1.017-1.04 2.482 0 1.464 1.065 2.879 1.213 3.078.148.198 2.098 3.204 5.083 4.494.71.307 1.264.49 1.696.628.712.227 1.36.194 1.872.118.571-.085 1.76-.72 2.008-1.415.248-.695.248-1.291.173-1.415-.075-.124-.273-.198-.57-.348Z"/></svg>
+</a>
+
+<script>
+  const translations = {
+    en: {
+      nav_about:"About Us", nav_services:"Services", nav_why:"Why Us", nav_reviews:"Reviews", nav_map:"Map",
+      hero_badge:"Now seeing patients in Downtown Miami",
+      hero_h1:"<em>Cosmetic</em>, Restorative &amp; General Dentistry in Miami",
+      hero_lead:"Smile Design, Crowns &amp; Bridges, Dental Implants and Oral Surgery. We accept new patients.",
+      hero_stat1:"Google rating", hero_stat2:"Google reviews", hero_stat3:"Downtown Miami",
+      hero_img_alt:"Dentist with a patient at Latin Dental of Miami",
+      about_kicker:"About Us", about_h2:"Caring for your dental health in the heart of Miami",
+      about_p:"Latin Dental of Miami is focused on comfortable, convenient general dental care. Contact the team directly for information about services, availability and payment options.",
+      about_li1:"Conveniently located in Downtown Miami",
+      about_li2:"General dentistry care for the local community",
+      about_li3:"Contact the team directly for details on services and availability",
+      about_li4:"We accept new patients",
+      services_kicker:"Services", services_h2:"Dental Services",
+      services_p:"Comprehensive dental care for patients in Miami.",
+      svc1_title:"General Dentistry", svc1_p:"Routine dental care focused on maintaining oral health and addressing common dental needs.",
+      svc2_title:"Preventive Dental Care", svc2_p:"Regular dental exams, professional cleanings, and preventive care to help maintain healthy teeth and gums.",
+      svc3_title:"Fillings & Restorative Care", svc3_p:"Restorative dental treatment for damaged or affected teeth, including dental fillings.",
+      svc4_title:"Root Canal Treatment", svc4_p:"Endodontic treatment designed to address problems affecting the inside of a tooth and help preserve the natural tooth.",
+      svc5_title:"Prosthodontics", svc5_p:"Restorative and tooth-replacement care, including prosthodontic treatment.",
+      svc6_title:"Oral Surgery", svc6_p:"Selected oral surgery procedures as part of comprehensive dental care.",
+      svc7_title:"Teeth Whitening", svc7_p:"Professional whitening treatment designed to improve the appearance of the smile.",
+      svc8_title:"Cosmetic Dentistry", svc8_p:"Cosmetic treatments designed to enhance the appearance and health of your smile.",
+      svc9_title:"Smile Design", svc9_p:"Personalized smile design planning to help you achieve the look you want.",
+      svc10_title:"Crowns & Bridges", svc10_p:"Custom crowns and bridges to restore damaged teeth and replace missing ones.",
+      svc11_title:"Dental Implants", svc11_p:"Dental implant treatment to provide a long-term solution for missing teeth.",
+      tech_kicker:"Technology", tech_h2:"Modern Dental Technology",
+      tech_p:"Our practice utilizes modern dental technology, including digital X-ray equipment, 3D scanning and medical imaging tools to support accurate evaluation, treatment planning and patient care.",
+      tech1_title:"Digital X-Rays", tech1_p:"Modern X-ray equipment to support dental evaluation and treatment planning.",
+      tech2_title:"3D Scanning", tech2_p:"3D scanning technology to assist with detailed dental assessment and treatment planning.",
+      tech3_title:"Medical Imaging", tech3_p:"Modern imaging tools that support accurate evaluation and clinical decision-making.",
+      tech4_title:"Digital Patient Records", tech4_p:"Electronic medical records help organize patient information and support efficient care.",
+      why_kicker:"Why Us", why_h2:"What sets Latin Dental of Miami apart",
+      why1_title:"Convenient, central location",
+      why1_p:"Located on SW 12th Avenue in the heart of Miami, the clinic offers accessible dental care for local residents and nearby communities alike.",
+      why2_title:"A local general dentistry practice",
+      why2_p:"Latin Dental of Miami serves a wide range of general dental care needs for the local community. Contact the team directly to confirm availability for specific treatments.",
+      why3_title:"New patients welcome",
+      why3_p:"Latin Dental of Miami is currently accepting new patients and looks forward to welcoming you to the practice.",
+      why5_title:"Convenient Downtown Miami location",
+      why5_p:"Easy to reach from anywhere in the city, our Downtown Miami office makes scheduling a visit simple.",
+      reviews_kicker:"Reviews", reviews_h2:"What our patients say on Google", reviews_sub:"Based on 56 Google reviews",
+      review_note_p:"The clinic's Google Business profile holds an average rating of 4.6/5 based on 56 reviews. Individual review text can be found on the clinic's Google profile via the map link.",
+      review_note_span:"Source: Google Business Profile — last updated 2026",
+      reviewer_meta_1:"Local Guide · 20 reviews", reviewer_meta_2:"Local Guide · 19 reviews", google_review_label:"Google Review",
+      map_kicker:"Map", map_h2:"Find us here", map_addr_label:"Address", map_phone_label:"Phone", map_email_label:"Email", map_hours_label:"Hours",
+      hours_mon_tue:"Mon–Tue: 10:00 AM–4:00 PM", hours_wed:"Wed: 11:00 AM–7:00 PM", hours_thu_fri:"Thu–Fri: 10:00 AM–4:00 PM", hours_sat:"Sat: 8:00 AM–1:00 PM", hours_sun:"Sun: Closed",
+      map_cta:"Call Now", map_iframe_title:"Latin Dental of Miami on the map", map_link_label:"Open in Google Maps",
+      comfort_kicker:"Your Comfort", comfort_h2:"Your Comfort Comes First",
+      comfort_p:"Every visit is built around care, technology and a team that puts you first.",
+      comfort1_title:"Experienced Dental Team", comfort1_p:"Skilled, attentive professionals dedicated to quality care at every visit.",
+      comfort2_title:"Modern Technology", comfort2_p:"Up-to-date equipment and techniques for safer, more precise treatment.",
+      comfort3_title:"Comfortable Care", comfort3_p:"A calm, welcoming environment designed to put every patient at ease.",
+      comfort4_title:"Flexible Payment Options", comfort4_p:"Convenient payment choices to make quality dental care accessible.",
+      contact_cta_h3:"Have Questions? Contact Our Team", contact_cta_p:"We're here to help. Reach out and we'll get back to you right away.",
+      call_now_btn:"Call Now", whatsapp_btn:"WhatsApp",
+      footer_tagline:"General dentistry care in Downtown Miami. Convenient, central location.",
+      footer_nav_title:"Navigation", footer_contact_title:"Contact",
+      footer_copy:"© 2026 Latin Dental of Miami"
+    },
+    es: {
+      nav_about:"Nosotros", nav_services:"Servicios", nav_why:"Por qué elegirnos", nav_reviews:"Reseñas", nav_map:"Mapa",
+      hero_badge:"Atendiendo pacientes en Downtown Miami",
+      hero_h1:"Odontología <em>Cosmética</em>, Restauradora y General en Miami",
+      hero_lead:"Diseño de Sonrisa, Coronas y Puentes, Implantes Dentales y Cirugía Oral. Aceptamos pacientes nuevos.",
+      hero_stat1:"Calificación en Google", hero_stat2:"Reseñas en Google", hero_stat3:"Downtown Miami",
+      hero_img_alt:"Dentista atendiendo a un paciente en Latin Dental of Miami",
+      about_kicker:"Nosotros", about_h2:"Cuidando tu salud dental en el corazón de Miami",
+      about_p:"Latin Dental of Miami se enfoca en brindar atención dental general cómoda y conveniente. Contacta directamente al equipo para conocer los servicios, la disponibilidad y las opciones de pago.",
+      about_li1:"Ubicación conveniente en Downtown Miami",
+      about_li2:"Atención de odontología general para la comunidad local",
+      about_li3:"Contacta al equipo directamente para conocer servicios y disponibilidad",
+      about_li4:"Aceptamos pacientes nuevos",
+      services_kicker:"Servicios", services_h2:"Servicios Dentales",
+      services_p:"Atención dental integral para pacientes en Miami.",
+      svc1_title:"Odontología General", svc1_p:"Atención dental de rutina enfocada en mantener la salud bucal y atender las necesidades dentales más comunes.",
+      svc2_title:"Odontología Preventiva", svc2_p:"Exámenes dentales regulares, limpiezas profesionales y cuidado preventivo para ayudar a mantener dientes y encías saludables.",
+      svc3_title:"Empastes y Restauraciones", svc3_p:"Tratamiento dental restaurador para dientes dañados o afectados, incluyendo empastes dentales.",
+      svc4_title:"Tratamiento de Conducto", svc4_p:"Tratamiento endodóntico diseñado para atender problemas que afectan el interior del diente y ayudar a preservar el diente natural.",
+      svc5_title:"Prostodoncia", svc5_p:"Atención restauradora y de reemplazo dental, incluyendo tratamiento prostodóntico.",
+      svc6_title:"Cirugía Oral", svc6_p:"Procedimientos de cirugía oral seleccionados como parte de una atención dental integral.",
+      svc7_title:"Blanqueamiento Dental", svc7_p:"Tratamiento de blanqueamiento profesional diseñado para mejorar la apariencia de la sonrisa.",
+      svc8_title:"Odontología Cosmética", svc8_p:"Tratamientos cosméticos diseñados para mejorar la apariencia y la salud de tu sonrisa.",
+      svc9_title:"Diseño de Sonrisa", svc9_p:"Planificación personalizada del diseño de sonrisa para ayudarte a lograr el aspecto que deseas.",
+      svc10_title:"Coronas y Puentes", svc10_p:"Coronas y puentes personalizados para restaurar dientes dañados y reemplazar los que faltan.",
+      svc11_title:"Implantes Dentales", svc11_p:"Tratamiento de implantes dentales para ofrecer una solución a largo plazo para los dientes faltantes.",
+      tech_kicker:"Tecnología", tech_h2:"Tecnología Dental Moderna",
+      tech_p:"Nuestra práctica utiliza tecnología dental moderna, incluyendo equipos de rayos X digitales, escaneo 3D y herramientas de imagenología médica para apoyar una evaluación precisa, la planificación del tratamiento y la atención al paciente.",
+      tech1_title:"Rayos X Digitales", tech1_p:"Equipo de rayos X moderno para apoyar la evaluación dental y la planificación del tratamiento.",
+      tech2_title:"Escaneo 3D", tech2_p:"Tecnología de escaneo 3D que ayuda con la evaluación dental detallada y la planificación del tratamiento.",
+      tech3_title:"Imagenología Médica", tech3_p:"Herramientas de imagenología modernas que apoyan una evaluación precisa y la toma de decisiones clínicas.",
+      tech4_title:"Historial Clínico Digital", tech4_p:"Los registros médicos electrónicos ayudan a organizar la información del paciente y facilitan una atención eficiente.",
+      why_kicker:"Por qué elegirnos", why_h2:"Lo que distingue a Latin Dental of Miami",
+      why1_title:"Ubicación céntrica y conveniente",
+      why1_p:"Ubicada en SW 12th Avenue, en el corazón de Miami, la clínica ofrece atención dental accesible tanto para residentes locales como para comunidades cercanas.",
+      why2_title:"Una práctica local de odontología general",
+      why2_p:"Latin Dental of Miami atiende una amplia variedad de necesidades de odontología general para la comunidad local. Contacta al equipo directamente para confirmar la disponibilidad de tratamientos específicos.",
+      why3_title:"Pacientes nuevos bienvenidos",
+      why3_p:"Latin Dental of Miami actualmente acepta pacientes nuevos y espera darte la bienvenida a la práctica.",
+      why5_title:"Ubicación conveniente en Downtown Miami",
+      why5_p:"Fácil de llegar desde cualquier punto de la ciudad, nuestra oficina en Downtown Miami hace que agendar una visita sea sencillo.",
+      reviews_kicker:"Reseñas", reviews_h2:"Lo que dicen nuestros pacientes en Google", reviews_sub:"Basado en 56 reseñas de Google",
+      review_note_p:"El perfil de Google Business de la clínica tiene una calificación promedio de 4.6/5 basada en 56 reseñas. El texto de las reseñas individuales se puede encontrar en el perfil de Google de la clínica a través del enlace del mapa.",
+      review_note_span:"Fuente: Perfil de Google Business — última actualización 2026",
+      reviewer_meta_1:"Guía Local · 20 reseñas", reviewer_meta_2:"Guía Local · 19 reseñas", google_review_label:"Reseña de Google",
+      map_kicker:"Mapa", map_h2:"Encuéntranos aquí", map_addr_label:"Dirección", map_phone_label:"Teléfono", map_email_label:"Correo electrónico", map_hours_label:"Horario",
+      hours_mon_tue:"Lun–Mar: 10:00–16:00", hours_wed:"Mié: 11:00–19:00", hours_thu_fri:"Jue–Vie: 10:00–16:00", hours_sat:"Sáb: 08:00–13:00", hours_sun:"Dom: Cerrado",
+      map_cta:"Llamar Ahora", map_iframe_title:"Latin Dental of Miami en el mapa", map_link_label:"Abrir en Google Maps",
+      comfort_kicker:"Tu Comodidad", comfort_h2:"Tu Comodidad es Primero",
+      comfort_p:"Cada visita está pensada en torno al cuidado, la tecnología y un equipo que te pone primero.",
+      comfort1_title:"Equipo Dental Experimentado", comfort1_p:"Profesionales capacitados y atentos, dedicados a la calidad en cada visita.",
+      comfort2_title:"Tecnología Moderna", comfort2_p:"Equipos y técnicas actualizadas para un tratamiento más seguro y preciso.",
+      comfort3_title:"Atención Confortable", comfort3_p:"Un ambiente cálido y tranquilo pensado para que cada paciente esté a gusto.",
+      comfort4_title:"Opciones de Pago Flexibles", comfort4_p:"Opciones de pago convenientes para hacer accesible un cuidado dental de calidad.",
+      contact_cta_h3:"¿Tienes Preguntas? Contacta a Nuestro Equipo", contact_cta_p:"Estamos aquí para ayudarte. Contáctanos y te responderemos enseguida.",
+      call_now_btn:"Llamar Ahora", whatsapp_btn:"WhatsApp",
+      footer_tagline:"Atención de odontología general en Downtown Miami. Ubicación céntrica y conveniente.",
+      footer_nav_title:"Navegación", footer_contact_title:"Contacto",
+      footer_copy:"© 2026 Latin Dental of Miami"
+    }
+  };
+
+  let currentLang = 'en';
+
+  function applyLang(lang){
+    currentLang = lang;
+    const dict = translations[lang];
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if(!dict[key]) return;
+      const attr = el.getAttribute('data-i18n-attr');
+      if(attr){
+        el.setAttribute(attr, dict[key]);
+      } else {
+        el.textContent = dict[key];
+      }
+    });
+
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if(dict[key]) el.innerHTML = dict[key];
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.lang === lang);
+    });
+  }
+
+  const langSwitch = document.getElementById('langSwitch');
+  if(langSwitch){
+    langSwitch.addEventListener('click', (e) => {
+      const btn = e.target.closest('.lang-btn');
+      if(!btn) return;
+      applyLang(btn.dataset.lang);
+    });
+  }
+
+  applyLang('en');
+
+  // nav scroll shadow + mobile menu (passive + rAF-throttled so fast scrolling never jitters)
+  const nav = document.getElementById('nav');
+  if(nav){
+    let navTicking = false;
+    window.addEventListener('scroll', () => {
+      if(!navTicking){
+        window.requestAnimationFrame(() => {
+          nav.classList.toggle('scrolled', window.scrollY > 10);
+          navTicking = false;
+        });
+        navTicking = true;
+      }
+    }, { passive: true });
+  }
+
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  if(burger && navLinks){
+    burger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      burger.classList.toggle('active');
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      burger.classList.remove('active');
+    }));
+  }
+
+  // scroll reveal — falls back to instantly visible if IntersectionObserver isn't supported,
+  // so content never gets stuck invisible on an older browser
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.18 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+
+  // animated counting numbers (hero stats) — punchy overshoot easing plus a felt "pop" on landing
+  function easeOutBack(x){
+    const c1 = 1.70158, c3 = c1 + 1;
+    return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2);
+  }
+  function animateCount(el){
+    const target = parseFloat(el.dataset.countTarget);
+    if(Number.isNaN(target)) return;
+    const decimals = parseInt(el.dataset.countDecimals || '0', 10);
+    const prefix = el.dataset.countPrefix || '';
+    const suffix = el.dataset.countSuffix || '';
+    const finalText = () => prefix + target.toFixed(decimals) + suffix;
+    try{
+      const duration = 1500;
+      const startTime = performance.now();
+      function tick(now){
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = easeOutBack(progress);
+        const value = Math.max(0, target * eased);
+        el.textContent = prefix + value.toFixed(decimals) + suffix;
+        if(progress < 1){
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = finalText();
+          el.classList.add('pop');
+          el.addEventListener('animationend', () => {
+            el.classList.remove('pop');
+            el.classList.add('counted');
+          }, { once: true });
+        }
+      }
+      requestAnimationFrame(tick);
+    } catch(err){
+      // fail safe: always land on the correct final number even if the animation itself errors out
+      el.textContent = finalText();
+    }
+  }
+  const countEls = document.querySelectorAll('.count-num');
+  if(countEls.length){
+    if('IntersectionObserver' in window){
+      const countIo = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if(e.isIntersecting){
+            animateCount(e.target);
+            countIo.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      countEls.forEach(el => countIo.observe(el));
+    } else {
+      countEls.forEach(el => animateCount(el));
+    }
+  }
+
+  // floating WhatsApp button: hide once the in-page WhatsApp button is visible
+  const waFloat = document.getElementById('waFloat');
+  const waInline = document.getElementById('waInlineBtn');
+  if(waFloat && waInline && 'IntersectionObserver' in window){
+    const waIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        waFloat.classList.toggle('hide', e.isIntersecting);
+      });
+    }, { threshold: 0.15 });
+    waIo.observe(waInline);
+  }
+</script>
+
+</body>
+</html>
